@@ -1390,20 +1390,45 @@ window.addEventListener('popstate', (event) => {
     const homeNav = $('homeNav');
     const matchesNav = $('matchesNav');
 
-    if ($('playerContainer') && !$('playerContainer').classList.contains('hidden') && !event.state?.channelId) {
+    // معالجة الرجوع من المشغل
+    if ($('playerContainer') && !$('playerContainer').classList.contains('hidden')) {
         hidePlayer();
-        // استعادة القسم السابق بعد إخفاء المشغل
-        if (event.state && event.state.stack) {
-            currentStack = event.state.stack;
+        
+        // استعادة القسم السابق من الحالة المحفوظة
+        if (event.state && (event.state.stack || event.state.stack === [])) {
+            currentStack = event.state.stack || [];
+            currentChannelId = event.state.channelId || null;
             window.currentViewMode = event.state.viewMode || 'home';
+            window.currentExternalUrl = event.state.externalUrl || '';
             applyViewMode();
             renderCurrentView();
+            if (currentChannelId) {
+                const channel = channelsCache.find(ch => ch.id === currentChannelId);
+                if (channel) selectChannel(channel, false);
+            }
         } else {
-            // إذا لم يكن هناك حالة سابقة، انتقل للصفحة الرئيسية
-            currentStack = [];
-            window.currentViewMode = 'home';
-            applyViewMode();
-            renderCurrentView();
+            // لم يكن هناك حالة محفوظة، جرب قراءة الـ hash من الرابط
+            const hashState = restoreHashState();
+            if (hashState.stack.length > 0 || hashState.channelId) {
+                currentStack = hashState.stack;
+                currentChannelId = hashState.channelId;
+                window.currentViewMode = hashState.viewMode;
+                window.currentExternalUrl = hashState.externalUrl || '';
+                applyViewMode();
+                renderCurrentView();
+                if (currentChannelId) {
+                    const channel = channelsCache.find(ch => ch.id === currentChannelId);
+                    if (channel) selectChannel(channel, false);
+                }
+            } else {
+                // لا توجد حالة سابقة، انتقل للرئيسية
+                currentStack = [];
+                currentChannelId = null;
+                window.currentViewMode = 'home';
+                window.currentExternalUrl = '';
+                applyViewMode();
+                renderCurrentView();
+            }
         }
         return;
     }
