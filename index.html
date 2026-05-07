@@ -954,7 +954,7 @@ body {
     <div class="sidebar-overlay hidden" id="sidebarOverlay"></div>
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <img src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/Alfaham%20TV%20(1).png" alt="Logo" class="sidebar-logo">
+            <img src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/AFLogo.png" alt="Logo" class="sidebar-logo">
         </div>
         <div class="sidebar-section">
             <a href="https://www.youtube.com/@alfahaminfo" class="sidebar-link" target="_blank" rel="noopener noreferrer">
@@ -988,8 +988,8 @@ body {
     </aside>
 
     <header class="site-header">
-        <img src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/Alfaham%20TV%20(1).png" alt="Logo" class="site-logo">
-        <div class="site-title">Alfaham TV</div>
+        <img src="https://raw.githubusercontent.com/h-80/img/refs/heads/main/AFLogo.png" alt="Logo" class="site-logo">
+        <div class="site-title">Alfaham Sport</div>
         <button id="installBtn" class="install-btn hidden" type="button" title="تثبيت التطبيق">تثبيت</button>
         <button id="sidebarToggle" class="sidebar-toggle" type="button" aria-label="فتح القائمة">☰</button>
     </header>
@@ -998,11 +998,7 @@ body {
         <div class="grid" id="grid"></div>
         <div class="matches-table-container hidden" id="matchesTableContainer"></div>
         <div class="external-link-container hidden" id="externalLinkContainer">
-            <div class="external-link-toolbar">
-                <button class="close-embed-btn" type="button" onclick="closeExternalLink()">← العودة</button>
-                <div class="external-link-title">Yalla Shoot داخل موقعنا</div>
-            </div>
-            <iframe src="" id="externalLinkIframe" style="width: 100%; height: calc(100vh - 56px); border: none;"></iframe>
+            <iframe src="" id="externalLinkIframe" style="width: 100%; height: 100%; border: none;"></iframe>
         </div>
         <div class="match-embed-overlay hidden" id="matchEmbedOverlay">
             <div class="match-embed-overlay-content">
@@ -1398,7 +1394,7 @@ window.addEventListener('popstate', (event) => {
         hidePlayer();
     }
 
-    if (window.currentViewMode === 'matchesTable' || window.currentViewMode === 'externalLink') {
+    if ((window.currentViewMode === 'matchesTable' || window.currentViewMode === 'externalLink') && !event.state) {
         window.currentViewMode = 'home';
         window.currentExternalUrl = '';
         if ($('grid')) $('grid').classList.remove('hidden');
@@ -1406,7 +1402,13 @@ window.addEventListener('popstate', (event) => {
         if ($('externalLinkContainer')) $('externalLinkContainer').classList.add('hidden');
         if (homeNav) homeNav.classList.add('active');
         if (matchesNav) matchesNav.classList.remove('active');
-        pushState();
+        window.history.replaceState({
+            path: 'navigation',
+            stack: [],
+            channelId: null,
+            viewMode: 'home',
+            externalUrl: ''
+        }, '', `${window.location.pathname}${window.location.search}`);
         return;
     }
 
