@@ -1249,21 +1249,6 @@ const matchesPageHtml = `
 const FALLBACK_ORDER = ['videojs', 'hlsjs', 'playerjs', 'jwplayer', 'dplayer', 'shaka', 'dashjs', 'flowplayer', 'clappr', 'plyr', 'mediaelement', 'openplayer', 'mediachrome', 'flvjs', 'native'];
 
 function cleanupAllPlayers() {
-    // إيقاف الصوت لجميع عناصر الفيديو قبل التدمير
-    const allVideos = document.querySelectorAll('video');
-    allVideos.forEach(video => {
-        try {
-            video.pause();
-            video.muted = true;
-            video.volume = 0;
-            video.currentTime = 0;
-            video.src = '';
-            video.load();
-        } catch(e) {
-            console.log('Error cleaning video element:', e);
-        }
-    });
-
     if (videojsInstance) { try { videojsInstance.dispose(); } catch(e){} videojsInstance = null; }
     if (hlsjsInstance) { try { hlsjsInstance.destroy(); } catch(e){} hlsjsInstance = null; }
     if (shakaPlayerInstance) { try { shakaPlayerInstance.destroy(); } catch(e){} shakaPlayerInstance = null; }
@@ -2040,37 +2025,38 @@ function showPlayerError(msg) {
 }
 
 function hidePlayer() {
-    // إيقاف الصوت لجميع المشغلات قبل التدمير
-    const allVideoElements = document.querySelectorAll('video');
-    allVideoElements.forEach(video => {
-        try {
-            video.pause();
-            video.muted = true;
-            video.volume = 0;
-            video.currentTime = 0;
-        } catch(e) {
-            console.log('Error stopping video:', e);
-        }
-    });
-
-    // إيقاف أي مشغلات نشطة
-    if (videojsInstance && typeof videojsInstance.pause === 'function') {
-        try { videojsInstance.pause(); } catch(e){ console.log('VideoJS pause error:', e); }
-    }
-    if (nativePlayerInstance && typeof nativePlayerInstance.pause === 'function') {
-        try { nativePlayerInstance.pause(); } catch(e){ console.log('Native player pause error:', e); }
-    }
-    if (playerjsEngineInstance && typeof playerjsEngineInstance.pause === 'function') {
-        try { playerjsEngineInstance.pause(); } catch(e){ console.log('PlayerJS pause error:', e); }
-    }
-
     cleanupAllPlayers();
     $('playerContainer').classList.add('hidden');
     const errorMsg = $('player-error-msg');
     if (errorMsg) errorMsg.classList.add('hidden');
     document.body.classList.remove('player-open');
     document.body.style.overflow = ''; // استعادة scroll
-    
+
+    // إيقاف الصوت من جميع عناصر الفيديو المحتملة
+    const videoElements = document.querySelectorAll('video');
+    videoElements.forEach(video => {
+        try {
+            video.pause();
+            video.muted = true;
+            video.volume = 0;
+            video.currentTime = 0;
+        } catch (e) {
+            console.log('Error stopping video:', e);
+        }
+    });
+
+    // إيقاف أي مشغلات iframe قد تكون نشطة
+    const iframes = document.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+        try {
+            if (iframe.src && (iframe.src.includes('youtube.com') || iframe.src.includes('youtu.be'))) {
+                iframe.src = '';
+            }
+        } catch (e) {
+            console.log('Error stopping iframe:', e);
+        }
+    });
+
     // إنهاء وضع ملء الشاشة وقفل التدوير
     if (document.fullscreenElement) {
         document.exitFullscreen().catch(err => console.log("Exit fullscreen failed:", err));
