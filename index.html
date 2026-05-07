@@ -1392,6 +1392,20 @@ window.addEventListener('popstate', (event) => {
 
     if ($('playerContainer') && !$('playerContainer').classList.contains('hidden') && !event.state?.channelId) {
         hidePlayer();
+        // استعادة القسم السابق بعد إخفاء المشغل
+        if (event.state && event.state.stack) {
+            currentStack = event.state.stack;
+            window.currentViewMode = event.state.viewMode || 'home';
+            applyViewMode();
+            renderCurrentView();
+        } else {
+            // إذا لم يكن هناك حالة سابقة، انتقل للصفحة الرئيسية
+            currentStack = [];
+            window.currentViewMode = 'home';
+            applyViewMode();
+            renderCurrentView();
+        }
+        return;
     }
 
     if ((window.currentViewMode === 'matchesTable' || window.currentViewMode === 'externalLink') && !event.state) {
