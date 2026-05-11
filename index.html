@@ -2237,7 +2237,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         homeNav.addEventListener('click', goToHome);
         matchesNav.addEventListener('click', () => {
-            window.open('https://www.yala-sport-now.com', '_blank');
+            window.currentViewMode = 'externalLink';
+            window.currentExternalUrl = 'https://www.yala-sport-now.com';
+            applyViewMode();
+            pushState();
         });
     }
 });
