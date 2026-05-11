@@ -154,17 +154,16 @@ body {
     background: rgba(0, 0, 0, 0.98);
     transform: translateX(-100%);
     transition: transform 0.25s ease;
-    z-index: 1000001; /* رفع القيمة لتكون أعلى من الشريط السفلي (100000) */
+    z-index: 1000001;
     padding: 22px 16px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    overflow-y: auto; /* تفعيل التمرير العمودي */
-    scrollbar-width: thin; /* لمتصفحات فايرفوكس */
+    overflow-y: auto;
+    scrollbar-width: thin;
     scrollbar-color: var(--primary) transparent;
 }
 
-/* تخصيص شكل شريط التمرير لمتصفحات كروم وويب كيت */
 .sidebar::-webkit-scrollbar {
     width: 4px;
 }
@@ -252,7 +251,7 @@ body {
     align-items: center;
     gap: 12px;
     padding: 12px 15px;
-    color: #ffffff; /* اللون الأبيض الأساسي للروابط */
+    color: #ffffff;
     text-decoration: none;
     border-radius: 12px;
     transition: all 0.3s ease;
@@ -265,19 +264,19 @@ body {
     width: 20px;
     text-align: center;
     font-size: 18px;
-    color: #ffffff; /* الأيقونات باللون الأبيض أيضاً */
+    color: #ffffff;
     transition: all 0.3s ease;
 }
 
 .sidebar-link:hover,
 .sidebar-link:active {
-    background: rgba(255, 102, 0, 0.15); /* خلفية برتقالية خفيفة عند المرور */
-    color: #FF6600; /* يتغير النص للبرتقالي عند المرور أو الضغط */
+    background: rgba(255, 102, 0, 0.15);
+    color: #FF6600;
 }
 
 .sidebar-link:hover i,
 .sidebar-link:active i {
-    color: #FF6600; /* تتغير الأيقونة للبرتقالي عند المرور أو الضغط */
+    color: #FF6600;
 }
 
 .bottom-nav {
@@ -294,7 +293,7 @@ body {
 }
 
 .nav-item {
-    color: #ffffff; /* النص باللون الأبيض عند عدم الاختيار */
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -305,14 +304,14 @@ body {
     flex: 1;
     transition: all 0.3s ease;
     height: 100%;
-    opacity: 0.6; /* شفافية بسيطة لغير المختار لزيادة التركيز على المختار */
+    opacity: 0.6;
     font-weight: 700;
     font-size: 13px;
 }
 
 .nav-item.active {
     background: #000000 !important;
-    color: #ff8c00 !important; /* النص باللون البرتقالي عند الاختيار */
+    color: #ff8c00 !important;
     opacity: 1;
     font-size: 14px;
 }
@@ -346,7 +345,6 @@ body {
     display: none !important;
 }
 
-/* الشبكة */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 110px);
@@ -357,7 +355,6 @@ body {
     margin: 0 auto;
 }
 
-/* الكرت */
 .card {
     background-color: rgba(255, 255, 255, 0.92);
     border-radius: 8px;
@@ -396,7 +393,6 @@ body {
     font-weight: 700;
 }
 
-/* مشغل الفيديو النظيف */
 .player-container {
     position: fixed;
     top: 0;
@@ -415,7 +411,6 @@ body {
     display: none !important;
 }
 
-/* تنسيقات جدول المباريات المدمج */
 .matches-table-container,
 .external-link-container {
     width: 100%;
@@ -473,29 +468,6 @@ body {
 .close-embed-btn:hover {
     background: rgba(255,255,255,0.15);
 }
-
-/* الأنماط الخاصة بالعناصر داخل الجدول المستخرج من الكود */
-.mnajiri {
-    display: block;
-    height: 94px;
-    position: relative;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-radius: 5px;
-    margin: 12px auto;
-    color: #333;
-    text-decoration: none;
-}
-
-.mpart1 { position: relative; height: 48px; line-height: 48px; }
-.mpart1 strong { color: #fff; height: 30px; line-height: 30px; position: absolute; left: 50%; transform: translateX(-50%); top: 10px; text-align: center; width: 80px; z-index: 1; border-radius: 5px; background: #222; font-size: 12px; }
-.right_match { float: right; width: 50%; text-align: left; padding-left: 60px; line-height: 94px; font-weight: 700; }
-.left_match { float: left; width: 50%; text-align: right; padding-right: 60px; line-height: 94px; font-weight: 700; }
-.mnajiri img { width: 45px; height: 45px; position: absolute; top: 24px; padding: 2px; background: #fff; border-radius: 50%; border: 1px solid #eee; }
-.right_match img { right: 10px; }
-.left_match img { left: 10px; }
-.details_match { position: absolute; bottom: 0; width: 100%; height: 30px; line-height: 30px; background: #eee; font-size: 11px; text-align: center; border-radius: 0 0 5px 5px; }
-.details_match span { padding: 0 10px; }
 
 #player-wrapper {
     flex: 1;
@@ -563,7 +535,6 @@ body {
     margin: auto !important;
 }
 
-/* إصلاحات خاصة لبعض المشغلات التي تستخدم iframe أو containers معقدة */
 .playerjs-container iframe,
 #clappr-container .clappr-player,
 #dplayer-container .dplayer-video-wrap,
@@ -605,10 +576,9 @@ body {
     display: none !important;
 }
 
-/* حاوية كروت المباريات */
 .matches-grid {
     display: grid;
-    grid-template-columns: 1fr; /* كرت واحد تحت الآخر في الموبايل بشكل افتراضي */
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 14px;
     width: 100%;
@@ -618,7 +588,7 @@ body {
 
 @media (min-width: 769px) {
     .matches-grid {
-        grid-template-columns: 1fr 1fr; /* كرتين بجانب بعض في الشاشات الكبيرة */
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -662,7 +632,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
-    aspect-ratio: 1080 / 480; /* النسبة المطلوبة */
+    aspect-ratio: 1080 / 480;
     width: 100%;
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
@@ -675,11 +645,10 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: fill; /* ملء الأبعاد تماماً 1080x480 */
+    object-fit: fill;
     border-radius: 12px;
 }
 
-/* تخصيص شكل المشغل ليكون مثل ExoPlayer */
 .empty-section-msg {
     grid-column: 1 / -1;
     text-align: center;
@@ -717,7 +686,6 @@ body {
     border: none;
 }
 
-/* تنسيقات جدول المباريات المدمج */
 .lightbox { display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 999999; }
 .lightbox-content { background: #fff; padding: 20px; border-radius: 10px; text-align: center; max-width: 400px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); direction: rtl; margin: 10px; }
 .icon-alert { color: #ff5722; margin-bottom: 10px; }
@@ -734,17 +702,6 @@ body {
 #match_today h2 { background: #FF6600; color: #fff; text-align: center; padding: 10px; }
 #clock { font-size: 0.6em; margin-top: 1px; }
 
-.mnajiri { display: block; height: 94px; position: relative; background: rgb(245, 245, 245); box-shadow: rgba(0, 0, 0, 0.57) 0px 25px 20px -21px; border-radius: 5px; margin: 12px auto; color: #333; text-decoration: none; overflow: hidden; }
-.mpart1 { position: relative; height: 48px; line-height: 48px; }
-.mpart1 strong { color: #fff; height: 30px; line-height: 30px; position: absolute; left: 50%; transform: translateX(-50%); top: 10px; text-align: center; width: 80px; z-index: 1; border-radius: 5px; background: #222; font-size: 12px; }
-.right_match { float: right; width: 50%; text-align: left; padding-left: 60px; line-height: 94px; font-weight: 700; color: #000; }
-.left_match { float: left; width: 50%; text-align: right; padding-right: 60px; line-height: 94px; font-weight: 700; color: #000; }
-.mnajiri img { width: 45px; height: 45px; position: absolute; top: 24px; padding: 2px; background: #fff; border-radius: 50%; border: 1px solid #eee; }
-.right_match img { right: 10px; }
-.left_match img { left: 10px; }
-.details_match { position: absolute; bottom: 0; width: 100%; height: 30px; line-height: 30px; background: #eee; font-size: 11px; text-align: center; border-radius: 0 0 5px 5px; }
-.details_match span { padding: 0 10px; background-color: #222222; color: #fff; border-left: 1px solid #fff; }
-
 .vjs-control-bar {
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent) !important;
     height: 4em !important;
@@ -754,17 +711,15 @@ body {
     line-height: 2.5 !important;
 }
 
-/* إخفاء الهيدر القديم للمشغل لجعل التصميم نظيفاً */
 .player-header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10001;
-    display: none; /* مخفي لجعل المشغل نظيفاً تماماً */
+    display: none;
 }
 
-/* أزرار الروابط - أعلى اليسار كما كانت */
 .quality-buttons {
     position: absolute;
     top: 18px;
@@ -893,23 +848,23 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: transparent; /* شفافة */
-    border: 2px solid #ffffff; /* إطار أبيض */
+    background: transparent;
+    border: 2px solid #ffffff;
     color: #ffffff;
-    font-family: 'Cairo', sans-serif; /* نفس خط الواجهة */
-    font-size: 13px; /* تكبير الخط قليلاً */
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    line-height: 1; /* ضبط ارتفاع السطر لضمان التوسيط العمودي */
+    line-height: 1;
     padding: 0;
     margin: 0;
     transition: all 0.2s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    overflow: hidden; /* منع خروج النص */
+    overflow: hidden;
     word-break: break-all;
 }
 
@@ -925,14 +880,11 @@ body {
     border-color: #ffffff;
 }
 
-/* التأكد من أن حاوية المشغل تملأ الشاشة ولا تحجب الفيديو */
 #player {
     width: 100% !important;
     height: 100% !important;
     display: block;
 }
-
-/* تنسيقات جدول المباريات الجديد - يتناسق مع الواجهة */
 
     </style>
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
@@ -1226,25 +1178,6 @@ let qualityTimeout = null;
 let appInitialized = false;
 let parallelEngineAttempts = 0;
 let parallelEngineSuccessful = false;
-const matchesPageHtml = `
-<div id="lightbox-alert" class="lightbox">
-    <div class="lightbox-content">
-        <i class="fas fa-exclamation-circle fa-3x icon-alert"></i>
-        <h2>تنبيه هام</h2>
-        <p>لتشغيل المباراة، تحتاج إلى تنزيل مشغل الفيديو <strong>Xpola Player</strong>. يرجى تنزيله إذا لم تكن قد قمت بذلك بالفعل.</p>
-        <div class="button-group">
-            <a href="https://play.google.com/store/apps/details?id=com.xpola.player" class="btn-download" target="_blank">تنزيل المشغل</a>
-            <button class="btn-hide" onclick="hideLightbox()">إخفاء</button>
-        </div>
-    </div>
-</div>
-<div class="match_today container" id="match_today">
-<h2>مباريات اليوم
-<div id="clock">جارٍ تحميل الوقت...</div>
-</h2>
-<div class="widget-content" id="contents"></div>
-</div>
-`;
 
 const FALLBACK_ORDER = ['videojs', 'hlsjs', 'playerjs', 'jwplayer', 'dplayer', 'shaka', 'dashjs', 'flowplayer', 'clappr', 'plyr', 'mediaelement', 'openplayer', 'mediachrome', 'flvjs', 'native'];
 
@@ -1270,12 +1203,10 @@ function cleanupAllPlayers() {
         if (el) el.classList.add('hidden');
     });
     
-    // منع التمرير أثناء تبديل المشغل
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 }
 
 function fallbackToNextEngine(url) {
-    // في حالة المحاولات المتوازاة، لا تنتقل للمشغل التالي إذا كان هناك مشغل ناجح
     if (parallelEngineSuccessful) return;
     
     for (let engine of FALLBACK_ORDER) {
@@ -1285,7 +1216,6 @@ function fallbackToNextEngine(url) {
         }
     }
     
-    // إذا فشلت جميع المشغلات، انتقل للرابط التالي
     const engineSelect = $('playerEngineSelect');
     if (engineSelect) engineSelect.value = 'auto';
     return fallbackToNextLink();
@@ -1303,20 +1233,16 @@ function fallbackToNextLink() {
     currentQualityIndex = nextIndex;
     currentQualityMode = 'links';
     
-    // إعادة تعيين محاولات المشغلات للرابط الجديد
     Object.keys(attemptedFallbacks).forEach(k => attemptedFallbacks[k] = false);
     parallelEngineSuccessful = false;
     
-    // تحديث أزرار الروابط وتحديد الزر النشط
     setupQualityButtons(currentChannelLinks, 'links');
     document.querySelectorAll('.quality-button').forEach((btn, i) => {
         btn.classList.toggle('active', i === nextIndex);
     });
     
-    // عرض رسالة تنبيه بسيطة
     toast(`جاري الانتقال للرابط التالي...`);
     
-    // تجربة مشغلات متعددة بشكل موازاة للرابط الجديد (5 مشغلات)
     setTimeout(() => {
         tryEnginesInParallel(currentChannelLinks[nextIndex].url, 5);
     }, 300);
@@ -1342,10 +1268,9 @@ function tryEnginesInParallel(url, numEngines = 5) {
                 parallelEngineAttempts++;
                 setPlayerSource(url, engine, false);
             }
-        }, idx * 200); // تأخير 200ms بين كل محاولة (أسرع من 500ms)
+        }, idx * 200);
     });
     
-    // إذا فشلت جميع المحاولات خلال 5 ثواني، انتقل للرابط التالي
     engineTimeoutHandle = setTimeout(() => {
         if (!parallelEngineSuccessful && parallelEngineAttempts >= numEngines) {
             fallbackToNextLink();
@@ -1390,11 +1315,9 @@ window.addEventListener('popstate', (event) => {
     const homeNav = $('homeNav');
     const matchesNav = $('matchesNav');
 
-    // معالجة الرجوع من المشغل
     if ($('playerContainer') && !$('playerContainer').classList.contains('hidden')) {
         hidePlayer();
         
-        // استعادة القسم السابق من الحالة المحفوظة
         if (event.state && (event.state.stack || event.state.stack === [])) {
             currentStack = event.state.stack || [];
             currentChannelId = event.state.channelId || null;
@@ -1407,7 +1330,6 @@ window.addEventListener('popstate', (event) => {
                 if (channel) selectChannel(channel, false);
             }
         } else {
-            // لم يكن هناك حالة محفوظة، جرب قراءة الـ hash من الرابط
             const hashState = restoreHashState();
             if (hashState.stack.length > 0 || hashState.channelId) {
                 currentStack = hashState.stack;
@@ -1421,7 +1343,6 @@ window.addEventListener('popstate', (event) => {
                     if (channel) selectChannel(channel, false);
                 }
             } else {
-                // لا توجد حالة سابقة، انتقل للرئيسية
                 currentStack = [];
                 currentChannelId = null;
                 window.currentViewMode = 'home';
@@ -1482,7 +1403,6 @@ function applyViewMode() {
     const homeNav = $('homeNav');
     const matchesNav = $('matchesNav');
     
-    // إخفاء/إظهار المشغل بناءً على وجود قناة مختارة
     if (currentChannelId) {
         $('playerContainer').classList.remove('hidden');
         document.body.classList.add('player-open');
@@ -1505,7 +1425,6 @@ function applyViewMode() {
         if ($('externalLinkContainer')) $('externalLinkContainer').classList.add('hidden');
         if (matchesNav) matchesNav.classList.add('active');
         if (homeNav) homeNav.classList.remove('active');
-        loadMatchesTable();
     } else if (window.currentViewMode === 'externalLink') {
         if ($('grid')) $('grid').classList.add('hidden');
         if ($('matchesGrid')) $('matchesGrid').classList.add('hidden');
@@ -1632,13 +1551,10 @@ function parseChannelLinks(ch) {
 function showPlayer(pushHistory = true) {
     $('playerContainer').classList.remove('hidden');
     document.body.classList.add('player-open');
-    document.body.style.overflow = 'hidden'; // منع scroll أثناء المشغل
+    document.body.style.overflow = 'hidden';
     if (pushHistory) pushState();
     showQualityButtons();
-    showPlayerControls(); // إظهار الأزرار عند فتح المشغل
-
-    // استعادة ميزة التدوير التلقائي للموبايل
-    // ألغينا الضغط التلقائي على ملء الشاشة لمنع سلوك المتصفح غير المتوقع عند اختيار المشغلات من القائمة.
+    showPlayerControls();
 }
 
 function showQualityButtons() {
@@ -1865,7 +1781,6 @@ function initializeNativePlayer(url) {
 function setPlayerSource(url, engine = 'videojs', resetFallbacks = true) {
     if (!url) return;
     
-    // في المحاولات المتوازاة، تخطي إذا كان هناك مشغل نجح بالفعل
     if (!resetFallbacks && parallelEngineSuccessful) return;
     
     currentPlayerEngine = engine;
@@ -1891,7 +1806,6 @@ function setPlayerSource(url, engine = 'videojs', resetFallbacks = true) {
                 videojsInstance = videojs('video-player', { autoplay: true, controls: true, responsive: true, fluid: false, preload: 'auto', muted: false });
                 videojsInstance.src({ src: url, type: url.includes('m3u8') ? 'application/x-mpegURL' : 'video/mp4' });
                 videojsInstance.ready(function() {
-                    // تحديد النجاح عند بدء التشغيل
                     if (!resetFallbacks) parallelEngineSuccessful = true;
                     this.play().catch(e => console.error("Autoplay failed:", e));
                 });
@@ -2030,9 +1944,8 @@ function hidePlayer() {
     const errorMsg = $('player-error-msg');
     if (errorMsg) errorMsg.classList.add('hidden');
     document.body.classList.remove('player-open');
-    document.body.style.overflow = ''; // استعادة scroll
+    document.body.style.overflow = '';
 
-    // إيقاف الصوت من جميع عناصر الفيديو المحتملة
     const videoElements = document.querySelectorAll('video');
     videoElements.forEach(video => {
         try {
@@ -2040,24 +1953,18 @@ function hidePlayer() {
             video.muted = true;
             video.volume = 0;
             video.currentTime = 0;
-        } catch (e) {
-            console.log('Error stopping video:', e);
-        }
+        } catch (e) {}
     });
 
-    // إيقاف أي مشغلات iframe قد تكون نشطة
     const iframes = document.querySelectorAll('iframe');
     iframes.forEach(iframe => {
         try {
             if (iframe.src && (iframe.src.includes('youtube.com') || iframe.src.includes('youtu.be'))) {
                 iframe.src = '';
             }
-        } catch (e) {
-            console.log('Error stopping iframe:', e);
-        }
+        } catch (e) {}
     });
 
-    // إنهاء وضع ملء الشاشة وقفل التدوير
     if (document.fullscreenElement) {
         document.exitFullscreen().catch(err => console.log("Exit fullscreen failed:", err));
     }
@@ -2085,16 +1992,14 @@ async function selectChannel(channel, pushHistory = true) {
     setupQualityButtons(links, 'links');
     showPlayer(pushHistory);
     
-    // تجربة مشغلات متعددة بشكل موازاة بدلاً من التسلسلي (5 مشغلات بدلاً من 3)
     tryEnginesInParallel(links[0].url, 5);
 }
 
 async function renderCurrentView() {
     const grid = $('grid');
-    if (!grid) return; // تأكد من وجود العنصر
+    if (!grid) return;
     const currentId = currentStack.length ? currentStack[currentStack.length - 1] : null;
     
-    // حفظ موضع التمرير الحالي لتجنب القفز عند التحديث التلقائي
     const scrollPos = window.scrollY;
     
     grid.innerHTML = '';
@@ -2114,7 +2019,7 @@ async function renderCurrentView() {
             };
             grid.appendChild(card);
         });
-        window.scrollTo(0, scrollPos); // استعادة موضع التمرير
+        window.scrollTo(0, scrollPos);
         return;
     }
     const subs = Object.values(categoriesCache).filter(c => c.parentId === currentId);
@@ -2140,7 +2045,7 @@ async function renderCurrentView() {
         card.onclick = () => selectChannel(ch);
         grid.appendChild(card);
     });
-    window.scrollTo(0, scrollPos); // استعادة موضع التمرير
+    window.scrollTo(0, scrollPos);
 }
 
 let playerControlsTimer = null;
@@ -2175,7 +2080,6 @@ function initVideoPlayer() {
             if (currentChannelLinks && currentChannelLinks.length > 0) {
                 const engine = engineSelect.value;
                 if (engine !== 'auto') {
-                    // عند الاختيار اليدوي، نعيد من الرابط الأول
                     currentLinkIndex = 0;
                     currentQualityIndex = 0;
                     attemptedFallbacks[engine] = false; 
@@ -2184,7 +2088,6 @@ function initVideoPlayer() {
                         setupQualityButtons(currentChannelLinks, 'links');
                     }, 150);
                 } else {
-                    // إذا اختار تلقائي، نعيد من الرابط الأول
                     currentLinkIndex = 0;
                     currentQualityIndex = 0;
                     Object.keys(attemptedFallbacks).forEach(k => attemptedFallbacks[k] = false);
@@ -2322,83 +2225,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const homeNav = $('homeNav');
     const matchesNav = $('matchesNav');
-    const matchesTableBtn = $('matchesTableBtn');
-    const internalPlayerBtn = $('internalPlayerBtn');
-    const backToMatchesGrid = $('backToMatchesGrid');
     if (homeNav && matchesNav) {
         const goToHome = () => {
             window.currentViewMode = 'home'; window.currentExternalUrl = '';
             homeNav.classList.add('active'); matchesNav.classList.remove('active');
             if ($('grid')) $('grid').classList.remove('hidden');
-            if ($('matchesGrid')) $('matchesGrid').classList.add('hidden');
             if ($('matchesTableContainer')) $('matchesTableContainer').classList.add('hidden');
             if ($('externalLinkContainer')) $('externalLinkContainer').classList.add('hidden');
             currentStack = []; currentChannelId = null; pushState(); renderCurrentView();
             if ($('playerContainer') && !$('playerContainer').classList.contains('hidden')) hidePlayer();
         };
         homeNav.addEventListener('click', goToHome);
-        if (internalPlayerBtn) internalPlayerBtn.addEventListener('click', (e) => { e.preventDefault(); goToHome(); });
         matchesNav.addEventListener('click', () => {
-            window.currentViewMode = 'matchesTable';
-            window.currentExternalUrl = '';
-            matchesNav.classList.add('active'); homeNav.classList.remove('active');
-            if ($('grid')) $('grid').classList.add('hidden');
-            if ($('matchesGrid')) $('matchesGrid').classList.add('hidden');
-            if ($('matchesTableContainer')) $('matchesTableContainer').classList.remove('hidden');
-            if ($('externalLinkContainer')) $('externalLinkContainer').classList.add('hidden');
-            loadMatchesTable(true);
-            pushState();
-            if ($('playerContainer') && !$('playerContainer').classList.contains('hidden')) hidePlayer();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-    const matchesTableContainer = $('matchesTableContainer');
-    if (matchesTableContainer) {
-        matchesTableContainer.addEventListener('click', function(e) {
-            const target = e.target.closest('a');
-            if (target && target.href) {
-                const href = target.getAttribute('href');
-                if (href.startsWith('go:') || href.includes('m3u8') || href.includes('intent:')) {
-                    e.preventDefault();
-                    if (href.includes('m3u8')) {
-                        setPlayerSource(href);
-                        showPlayer();
-                    } else {
-                        toast('جاري محاولة تشغيل الرابط في المشغل الداخلي...');
-                        setPlayerSource(href);
-                        showPlayer();
-                    }
-                }
-            }
-        }, true);
-    }
-    if (backToMatchesGrid) {
-        backToMatchesGrid.addEventListener('click', () => {
-            if ($('matchesGrid')) $('matchesGrid').classList.remove('hidden');
-            if ($('matchesTableContainer')) $('matchesTableContainer').classList.add('hidden');
+            window.open('https://www.yala-sport-now.com', '_blank');
         });
     }
 });
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
-
-// جدول المباريات الجديد - يعمل تلقائيًا ويتناسق مع الواجهة
-function loadMatchesTable(forceReload = false) {
-    const container = $('matchesTableContainer');
-    if (!container) return;
-    container.innerHTML = matchesPageHtml;
-    
-    // Update clock
-    function updateClock() {
-        const now = new Date();
-        const clockEl = container.querySelector('#clock');
-        if (clockEl) {
-            clockEl.textContent = now.toLocaleTimeString('ar-SA', { hour12: false });
-        }
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-}
 
 function closeExternalLink() {
     window.currentViewMode = 'home';
